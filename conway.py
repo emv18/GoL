@@ -56,7 +56,7 @@ def update(frameNum, img, grid, N, width, height, generation, itera, aGeneration
     countToad= 0
     countBeacon= 0
     countGlider= 0
-    countLG= 0
+    countLws= 0
     time.sleep(0.5)
     # TODO: Implement the rules of Conway's Game of Life
     if (iteraciones < generation):
@@ -194,8 +194,65 @@ def update(frameNum, img, grid, N, width, height, generation, itera, aGeneration
                          [0, 0, 0, ON, ON, 0, 0],
                          [0, 0, 0, 0, 0, 0, 0]])
         
+        for i in range(0, width):
+            for j in range(0, height):
+                    if(np.array_equal(grid[i:i+4, j:j+4] , block, equal_nan=True) ):
+                        countBlock+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+6] , beehive, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+5] , np.rot90(beehive), equal_nan=True)):
+                        countBee+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+6] , loaf, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(loaf), equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(loaf, 2), equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(loaf, 3), equal_nan=True)):
+                        countLoaf+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , boat, equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(boat), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(boat, 2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(boat, 3), equal_nan=True)):
+                        countBoat+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , tub, equal_nan=True)):
+                        countTub+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+3] , blinker1, equal_nan=True) or np.array_equal(grid[i:i+3, j:j+5] , blinker2, equal_nan=True)):
+                        countBlinker+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+6] , toad1, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(toad1), equal_nan=True)):
+                        countToad+=1
+                        continue
+                    if(np.array_equal(grid[i:i+4, j:j+6] , toad2, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+4] , np.rot90(toad2), equal_nan=True)):
+                        countToad+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+6] , beacon1, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(beacon1), equal_nan=True)):
+                        countBeacon+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+6] , beacon2, equal_nan=True) or np.array_equal(grid[i:i+6, j:j+6] , np.rot90(beacon2), equal_nan=True)):
+                        countBeacon+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , glider1, equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider1), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider1, 2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider1, 3), equal_nan=True)):
+                        countGlider+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , glider2, equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider2, 2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider2, 3), equal_nan=True)):
+                        countGlider+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , glider3, equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider3), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider3, 2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider3, 3), equal_nan=True)):
+                        countGlider+=1
+                        continue
+                    if(np.array_equal(grid[i:i+5, j:j+5] , glider4, equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider4), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider4, 2), equal_nan=True) or np.array_equal(grid[i:i+5, j:j+5] , np.rot90(glider4, 3), equal_nan=True)):
+                        countGlider+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+7] , lws1, equal_nan=True) or np.array_equal(grid[i:i+7, j:j+6] , np.rot90(lws1), equal_nan=True) or np.array_equal( grid[i:i+6, j:j+7] , np.rot90(lws1, 2), equal_nan=True) or np.array_equal( grid[i:i+7, j:j+6] , np.rot90(lws1, 3), equal_nan=True)):
+                        countLws+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+7] , lws2, equal_nan=True) or np.array_equal(grid[i:i+7, j:j+6] , np.rot90(lws2), equal_nan=True) or np.array_equal( grid[i:i+6, j:j+7] , np.rot90(lws2, 2), equal_nan=True) or np.array_equal( grid[i:i+7, j:j+6] , np.rot90(lws2, 3), equal_nan=True)):
+                        countLws+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+7] , lws3, equal_nan=True) or np.array_equal(grid[i:i+7, j:j+6] , np.rot90(lws3), equal_nan=True) or np.array_equal( grid[i:i+6, j:j+7] , np.rot90(lws3, 2), equal_nan=True) or np.array_equal( grid[i:i+7, j:j+6] , np.rot90(lws3, 3), equal_nan=True)):
+                        countLws+=1
+                        continue
+                    if(np.array_equal(grid[i:i+6, j:j+7] , lws4, equal_nan=True) or np.array_equal(grid[i:i+7, j:j+6] , np.rot90(lws4), equal_nan=True) or np.array_equal( grid[i:i+6, j:j+7] , np.rot90(lws4, 2), equal_nan=True) or np.array_equal( grid[i:i+7, j:j+6] , np.rot90(lws4, 3), equal_nan=True)):
+                        countLws+=1
+                        continue
+
         output_file = 'output.txt'
-        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLG, aGeneration, iteraciones,  width, height)
+        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLws, aGeneration, iteraciones,  width, height)
         return img,
 
 # main() function
@@ -207,7 +264,7 @@ def main():
     # TODO: add arguments
 
     aGeneration= 0
-    input_file = '5.in' 
+    input_file = '1.in' 
     coord= []
     with open(input_file, 'r') as f:
         lines = f.readlines()
@@ -225,6 +282,8 @@ def main():
             x= int(i[0])
             y= int(i[1])
             coord.append((x,y))
+
+        
 
     # declare grid
     grid = np.array([])
@@ -264,19 +323,19 @@ def main():
     countToad= 0
     countBeacon= 0
     countGlider= 0
-    countLG= 0
+    countLws= 0
     iteraciones= 0
     output_file = 'output.txt'
     if(os.path.exists(output_file)):
         os.remove(output_file)
-        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLG, aGeneration, iteraciones,  width, height)
+        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLws, aGeneration, iteraciones,  width, height)
     else:
-        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLG, aGeneration, iteraciones,  width, height)
+        File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLws, aGeneration, iteraciones,  width, height)
 
 
-def File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLG, aGeneration, iteraciones, width, height):
+def File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, countBlinker, countToad, countBeacon, countGlider, countLws, aGeneration, iteraciones, width, height):
     today = date.today()
-    countTotal= countBlock + countBee + countLoaf + countBoat + countTub + countBlinker + countToad + countBeacon + countGlider + countLG
+    countTotal= countBlock + countBee + countLoaf + countBoat + countTub + countBlinker + countToad + countBeacon + countGlider + countLws
     percentBlock= 0
     percentBee= 0
     percentLoaf= 0
@@ -284,9 +343,20 @@ def File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, coun
     percentTub= 0
     percentBlinker= 0
     percentToad= 0
-    percentBeacon= 0
+    percentBeacon=0
     percentGlider= 0
-    percentLG= 0
+    percentLws= 0
+    if(countTotal != 0):
+        percentBlock= (countBlock/countTotal)*100
+        percentBee= (countBee/countTotal)*100
+        percentLoaf= (countLoaf/countTotal)*100
+        percentBoat= (countBoat/countTotal)*100
+        percentTub= (countTub/countTotal)*100
+        percentBlinker= (countBlinker/countTotal)*100
+        percentToad= (countToad/countTotal)*100
+        percentBeacon= (countBeacon/countTotal)*100
+        percentGlider= (countGlider/countTotal)*100
+        percentLws= (countLws/countTotal)*100
     iteraciones+= 1
 
     with open(output_file, 'a') as fo:
@@ -296,16 +366,16 @@ def File(output_file, countBlock, countBee, countLoaf, countBoat, countTub, coun
         fo.write("----------------------------------------------" + '\n')
         fo.write("|                  |   Count   |   Percent   |" + '\n')
         fo.write("|--------------------------------------------|" + '\n')
-        fo.write("| Block            |     " + str(countBlock) + "     |      " + str(percentBlock) + "      |" + '\n')
-        fo.write("| Beehive          |     " + str(countBee) + "     |      " + str(percentBee) + "      |" + '\n')
-        fo.write("| Loaf             |     " + str(countLoaf) + "     |      " + str(percentLoaf) + "      |" + '\n')
-        fo.write("| Boat             |     " + str(countBoat) + "     |      " + str(percentBoat) + "      |" + '\n')
-        fo.write("| Tub              |     " + str(countTub) + "     |      " + str(percentTub) + "      |" + '\n')
-        fo.write("| Blinker          |     " + str(countBlinker) + "     |      " + str(percentBlinker) + "      |" + '\n')
-        fo.write("| Toad             |     " + str(countToad) + "     |      " + str(percentToad) + "      |" + '\n')
-        fo.write("| Beacon           |     " + str(countBeacon) + "     |      " + str(percentBeacon) + "      |" + '\n')
-        fo.write("| Glider           |     " + str(countGlider) + "     |      " + str(percentGlider) + "      |" + '\n')
-        fo.write("| LG sp ship       |     " + str(countLG) + "     |      " + str(percentLG) + "      |" + '\n')
+        fo.write("| Block            |     " + str(countBlock) + "     |      " + str(percentBlock) + "%      |" + '\n')
+        fo.write("| Beehive          |     " + str(countBee) + "     |      " + str(percentBee) + "%      |" + '\n')
+        fo.write("| Loaf             |     " + str(countLoaf) + "     |      " + str(percentLoaf) + "%      |" + '\n')
+        fo.write("| Boat             |     " + str(countBoat) + "     |      " + str(percentBoat) + "%      |" + '\n')
+        fo.write("| Tub              |     " + str(countTub) + "     |      " + str(percentTub) + "%      |" + '\n')
+        fo.write("| Blinker          |     " + str(countBlinker) + "     |      " + str(percentBlinker) + "%      |" + '\n')
+        fo.write("| Toad             |     " + str(countToad) + "     |      " + str(percentToad) + "%      |" + '\n')
+        fo.write("| Beacon           |     " + str(countBeacon) + "     |      " + str(percentBeacon) + "%      |" + '\n')
+        fo.write("| Glider           |     " + str(countGlider) + "     |      " + str(percentGlider) + "%      |" + '\n')
+        fo.write("| LG sp ship       |     " + str(countLws) + "     |      " + str(percentLws) + "%      |" + '\n')
         fo.write("|--------------------------------------------|" + '\n')
         fo.write("| Total            |     " + str(countTotal) + "     |             |" + '\n')
         fo.write("           " + '\n')

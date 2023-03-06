@@ -1,19 +1,19 @@
-Simulation at 2023-03-04
-Universe size 30 x 30 
+Simulation at 2023-03-05
+Universe size 100 x 200 
 Iteration: 1
 ----------------------------------------------
 |                  |   Count   |   Percent   |
 |--------------------------------------------|
-| Block            |     0     |      0      |
-| Beehive          |     0     |      0      |
-| Loaf             |     0     |      0      |
-| Boat             |     0     |      0      |
-| Tub              |     0     |      0      |
-| Blinker          |     0     |      0      |
-| Toad             |     0     |      0      |
-| Beacon           |     0     |      0      |
-| Glider           |     0     |      0      |
-| LG sp ship       |     0     |      0      |
+| Block            |     0     |      0%      |
+| Beehive          |     0     |      0%      |
+| Loaf             |     0     |      0%      |
+| Boat             |     0     |      0%      |
+| Tub              |     0     |      0%      |
+| Blinker          |     0     |      0%      |
+| Toad             |     0     |      0%      |
+| Beacon           |     0     |      0%      |
+| Glider           |     0     |      0%      |
+| LG sp ship       |     0     |      0%      |
 |--------------------------------------------|
 | Total            |     0     |             |
            
